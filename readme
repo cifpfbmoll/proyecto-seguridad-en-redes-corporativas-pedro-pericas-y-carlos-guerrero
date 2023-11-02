@@ -1,1 +1,11 @@
+-----------------------------------------**HARDENING UBUNTU -SPRINT 1**----------------------------------------------------------------------------------------------------------------------------------------------
 
+En este sprint hemos tenido el objetivo de alcanzar el cis_level2_server de nuestra máquina Ubuntu 22.04 LTS versión Desktop.
+
+1. Hemos hecho una lectura sobre los puntos de referencia del CIS, para poder entender a lo que nos enfrentábamos
+2. Una vez instalado el USG y habiendo seguido la guía para utilizarlo hacemos una auditoria y vemos lo insegura que es nuestra máquina con un Scoring de menos del 60% y con 2 fallos críticos y 82 medio críticos
+3. Creamos seguridad al arranque del GRUB añadiéndole una contraseña, un single user para el recovery mode y damos permisos solo al usuario root para que solo pueda acceder él o usuarios con privilegios
+4. Creamos un usuario nuevo y lo añadimos al grupo sudoers
+5. Y por ultimo comprobamos que cumplimos con los consejos sobre las actualizaciones de software del incibe (Comprobar que los repositorios son los oficiales y/o fiables)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
