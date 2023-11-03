@@ -9,3 +9,15 @@ En este sprint hemos tenido el objetivo de alcanzar el cis_level2_server de nues
 5. Y por ultimo comprobamos que cumplimos con los consejos sobre las actualizaciones de software del incibe (Comprobar que los repositorios son los oficiales y/o fiables)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------**DUPLICATI - SPRINT 2**-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+En este sprint el objetivo era utilizar la herramienta duplicati hacer un uso de ésta.
+
+1. Primero de todo le dimos un vistazo rapido a los links previos antes de realizar el sprint.
+2. Seguidamente iniciamos nuestras máquinas y empezamos descargar el software de duplicati.
+3. Una vez tenemos descargado duplicati lo ejecutamos, configuramos la copia 1 como se nos indica el enunciado (copia 1 llamada “copia documentos”,copia cifrada con origen en la carpeta Documentos del servidor y destino tu cuenta de Google Drive.)
+4. A continuacion realizamos una restauración para comprobar que hemos realizado correctamente el ejercicio.
+5. Finalmente repetimos la copia 2 con los siguientes requisitos: (copia 2 llamada “copia imágenes”, copia sin cifrar con origen en la carpeta Imágenes del servidor y destino tu cuenta de Google Drive.)
+6. Comprobamos, restaurando los archivos para comprobar que se ha realizado el ejercicio correctamente
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
