@@ -80,3 +80,37 @@ En este sprint profundizaremos sobre las configuraciones para la conexión SSH y
 13. Si miramos en nuestra aplicacion nos mostrara un codigo que se ira refrescando cada 30 segundos
 14. Finalmente si inicamos sesion en SSH nos pedira las password del usuario y además el codigo que estará en nuestra aplicación
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-----------------------------**Escaneo de vulnerabilidades - SPRINT 5**-------------------------------------------------------------------------------------------------------------------------------------------------
+
+En este sprint a través de Kali Linux realizaremos diferentes escaneos en una maquina metaesploitable2 y nuestro servidor
+
+1. Primero de todo instalaremos la maquina metaesploitable2 
+2. El siguiente paso sera realizar un escaneo utilizando la tacnica SYN Scan en las 2 maquinas para ver todos los puertos escaneados
+3. Relizaremos un escaneo de los principales puertos UDP unicamente en la maquina metaesplitable2
+4. Seguidamente realizaremos un escaneo a través del script vuln en nuestras 2 máquinas, éste escanea todas las posibles vulrnerabilidades de nuestras maquinas encontrando puertos conectados y abiertos
+5. A continuación realizaremos un escaneo agresivo en nuestras 2 maquinas. Nos encontraremos diferentes versiontes que tenemos instaladas 
+6. Finalmente haremos un escaneo de la red nuestra casa y documentar que información nos encontramos según que tipo de escaneo hemos realizado
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------**Seguridad perimetral con pfSense - SPRINT 6**---------------------------------------------------------------------------------------------------------------------------------------------
+
+La tarea de este sprint será configurar con la interfaz gráfica de pfSsense diferentes reglas para una estructura en específico
+
+1. Inciaremos con la configuracion Incial:
+    Instalar pfSense con trees tarjetas de red: WAN(adaptador puente), LAN DMZ(Red interna 10.0.3.0/24) y LAN Empleados(Red interna 10.0.2.0/24)
+    Seguiremos con la instalacion de pfsense en nuestra máquina
+    Configuraremos las interfaces como hemos mencionado antes
+2. Verificamos que en la LAN de empleados tenemos acceso a internet
+3. Comprobaremos que ambos equipos no tengan conexion entre ellos para evitar el pivoting
+4. Añadiremos la regla en la DMZ para que pueda tener conexión a internet y comprobamos que evidentemente tenemos conexión 
+5. Crearemos una regla en la NAT para que desde nuestro equipo anfitrión pueda acceder al servidor web redireccionándolo al poner la ip de la WAN 
+6. Añadiremos una regla muy parecida a la anterior solo que esta vez bloquearemos el trafico por el puerto 80 y redirecciona por el puerto 443
+7. Seguidamente crearemos una regla que nos permita desde el equipo anfitrion conexion por SSH al servidor DMZ
+8. A continuación estableceremos una regla que nos permitira actuar en caso de un ataque y que no nos exfiltren datos de nuestro servidor al exterior
+9. Revisaremos que existe una regla antibloqueo que permite todo el tráfico, para que sea accesible el configurador web desde la LAN. Conclusión no hay que hacer nada
+10. Junto a un compañero crearemos una regla que bloquee la ip de un equipo que está realizando un ataque DDoS
+11. Finalmente crearemos una regla a nuestro gusto para que nuestra estructura sea mucho más segura
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
