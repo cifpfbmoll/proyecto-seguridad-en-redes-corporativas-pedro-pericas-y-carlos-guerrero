@@ -20,4 +20,63 @@ En este sprint el objetivo era utilizar la herramienta duplicati hacer un uso de
 4. A continuacion realizamos una restauración para comprobar que hemos realizado correctamente el ejercicio.
 5. Finalmente repetimos la copia 2 con los siguientes requisitos: (copia 2 llamada “copia imágenes”, copia sin cifrar con origen en la carpeta Imágenes del servidor y destino tu cuenta de Google Drive.)
 6. Comprobamos, restaurando los archivos para comprobar que se ha realizado el ejercicio correctamente
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+---------------------------------------**HARDENING APACHE - SPRINT 3**------------------------------------------------------------------------------------------------------------------------------------------------
+
+El objetivo de este sprint será realizar las configuraciones para implementar ciertos niveles de seguridad en un equipo de Apache
+
+1. Empezaremos obviamente teniendo una maquina con Apache instalado.
+2. Realizaremos unas configuraciones generales o globales desde los ficheros de Apache2.conf, pasando por ports.conf, mods-enabled y acabando por envvars
+3. Configuraremos los usuarios y grupos para que haya ciertas restricciones según el usuario dependiedo su nivel jerárquico dentro de la empresa
+4. Seguidamente ocultaremos la versiones de Apache para evitar que los ciberdelincuentes conozcan que version de Apache para evitar un posible ataque en el archivo "/etc/apache2/conf-enabled/security.conf"
+5. El siguiente paso será la exposicion minima de modulos, esto sirve para reducir la carga y la superficie de expoiscion de un ataque, los comandos que se realizaran seran: "a2dismod" para deshabilitar y "a2enmod" para habilitar 
+6. En el siguiente apartado crearemo un virtualhost con nuestro nombre y se realizara la configuracion para proteger el recurso privado frente otras fuentes
+7. En este apartado aprenderemos sobre el fichero ".htacces". Estos ficheros permiten personalizar la configuracion de directivas que se definen en el fichero principal de configuracion de Apache
+8. Realizaremos un ataque llamado hotlinking a nuestro servidor. Hotlinking indica que alguien esta usando un enlace a una imagen que esta archivada en otro sitio web, es decir, nos pueden robar información 
+9. Crearemos los certificados de SSL para que nuestro virtualHost sea seguro, creando así una clave publica y otra privada 
+10. ¿Qué és mod_security? Mod_security és un modulo para diversos servidores web que protege de ataques web comunmente conocidos. En este sprint haremos uso del conjunto de reglas "OWASP" 
+11. Seguidamente realizaremos un ataque DDoS mediate Slowlorus para comprobar que hemos realizado y configurado correctamente las reglas y modulos anteriormente mencionados y realizar la comprobacion.
+12. A continuación clonaremos e instalaremos las reglas OWASP y habilitaremos mod_security. Este paso se realiza después del ataque de DDoS ya que al tener habilitado las reglas y mod_security puede dar problemas
+13. Implementaremos las reglas SQLinjection y procederemos a relizar un ataque a través de sqlmap. Si se han realizado correctamente tendremos el aviso en el archivo "/var/log/apache2/modsec_audit.log"
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------**HARDENING SSH - SPRINT 4**-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+En este sprint profundizaremos sobre las configuraciones para la conexión SSH y crear una conexión segura 
+
+1. Instalaremos SSH server con el comando "apt install openssh-server"
+2. Deshabilitaremosn la version 1 y utilizaremos la version 2 ya que nos puede ocasionar problemas a lo largo de este srpint
+3. Activaremos el modulo PAM en el archivo de configuración "/etc/ssh/sshd_config"
+4. En el mismo fichero realizaremos las siguiente configuraciones:
+  ClientAliveInterval  300
+  ClientAliveCountMax  0
+  MaxAuthTries  4
+  IgnoreRhosts yes
+  HostbasedAuthentication no
+  PermitEmptyPasswords no
+5. Añadiremos algoritmos de cifrado, así como difentes algoritmos MAC, utilizaremos algoritmos que no tengan vulnerabildades conocidas y con una clave robusta para que no pueda ser comprometida. Utilizaremos Ciphers, Mac y Kexalagorithms
+6. Habilitaremos un doble factor de autenticacion en el seruvcio de ssh, asi nos permitira verificar las identidad de la coneion por dos vias distintas
+7. Instalaremos el moudlo PAM para ello introduciremos el comando: "sudo apt install libpam-google-authenticator"
+8. Seguidamente dentro del archivo "/etc/pam.d/sshd" dejaremos el siguiente parametros: 
+  auth required pam_google_authenticator.so
+  ChallengeResponseAuthenticacion yes
+  PasswordAuthentication yes
+9. Despues ejecturamos el comando "google-authenticator" y marcaremos la siguiente opcion
+  Do you want authenticacion tokens to be time-based(y/n)
+
+10. Nos generara un codigo qr que deberemos escanear con nuestro movil junto con la aplicacion Google Authenticator
+11. Una vez escaneado el código nos facilita la clave secreta con la cual podremos configurar con la app y nos proporcionara unos codigos de emergencia
+12. A continuación nos realizar unas preguntas y las marcaremos con las siguiente respuestas
+    yes
+    yes
+    no
+    yes
+13. Si miramos en nuestra aplicacion nos mostrara un codigo que se ira refrescando cada 30 segundos
+14. Finalmente si inicamos sesion en SSH nos pedira las password del usuario y además el codigo que estará en nuestra aplicación
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
