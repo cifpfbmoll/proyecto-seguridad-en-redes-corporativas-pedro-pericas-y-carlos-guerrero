@@ -114,3 +114,17 @@ La tarea de este sprint será configurar con la interfaz gráfica de pfSsense di
 10. Junto a un compañero crearemos una regla que bloquee la ip de un equipo que está realizando un ataque DDoS
 11. Finalmente crearemos una regla a nuestro gusto para que nuestra estructura sea mucho más segura
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------**IDS y VPN con PfSense - SPRINT 7**-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+En este sprint veremos la instalacion de del IDS Suricata, como funciona realizando un ataque DDoS, instalar un VPN y mirar su funcionamiento
+
+1. Primero de todo instalremos el paquete Suricata en nuestro pfsense siguiendo esta guia (https://www.elladodelmal.com/2022/07/pfsense-como-configurar-tu-propio-ids.html)
+2. Seguidamente empezaremos a configurar nuestro Suricata, en nuestro caso como viene indicado en la guía ademas de aplicar las reglas de la comunidad de Snort
+3. Una vez aplicadas nuestras configuraciones y tengamos el suricata listo para usar, deberemos dejarlo apagado y mediante un ataque DDoS observaremos el comportamiento y los avisos en nuestro Suricata 
+4. Volvemos a realizar el ataque DDoS pero esta vez con nuestro suricata activo. A la hora de observar los avisos deberemos fijarnos en el apartado "blocks" y si coinciden los paquetes con nuestro ataque, quiere decir
+suricata esta funcionando correctamente
+5. Tras comprobar el funcionamiento de Suricata, pasaremos a instalar nuestro servidor VPN depende de nuestro gusto podremos elegir tanto como OpenVPN como Wireguard y configurar un tunel VPN para nuestros clientes 
+6. Finalmente instalaremos el paquete de NTOP en nuestro pfsense y repasaremos por encima sus prestanciones y que herramientas ofrece
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
