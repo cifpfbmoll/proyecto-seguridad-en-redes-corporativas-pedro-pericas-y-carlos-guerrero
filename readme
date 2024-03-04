@@ -128,3 +128,24 @@ suricata esta funcionando correctamente
 5. Tras comprobar el funcionamiento de Suricata, pasaremos a instalar nuestro servidor VPN depende de nuestro gusto podremos elegir tanto como OpenVPN como Wireguard y configurar un tunel VPN para nuestros clientes 
 6. Finalmente instalaremos el paquete de NTOP en nuestro pfsense y repasaremos por encima sus prestanciones y que herramientas ofrece
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------** Alta disponibilidad - SPRINT 8 **---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+En este sprint vamos a crear un balanceador de carga con Apache2
+
+1. Configuración del Proxy Inverso con Apache (US12):
+
+  - Objetivo: Implementar un proxy inverso utilizando Apache para redirigir peticiones al servidor final.
+  - Servidor Final: Utiliza la aplicación http.server de Python instalada en Ubuntu. La página HTML resultante debe contener "proxy inverso + tu nombre y apellido."
+  - Configuración de Apache: Redirige las solicitudes al servidor final. Realiza pruebas de funcionamiento desde un equipo en la WAN.
+  - Lectura recomendada: Enlace al artículo.
+  - Módulos a habilitar: sudo a2enmod proxy y sudo a2enmod proxy_http.
+
+2. Configuración del Balanceador de Carga con Apache (US13):
+
+  - Objetivo: Configurar Apache como un balanceador de carga para redirigir peticiones entre tres miembros del balanceador (workers).
+  - Miembros del Balanceador: Utiliza http.server para crear tres carpetas con páginas HTML que contengan "miembro balanceador nº __ + tu nombre y apellido."
+  - Configuración de Apache: Define el balanceador con tu apellido como nombre. Utiliza el método de balanceo "byrequests," con el primer nodo teniendo el triple de carga que el segundo. El tercer nodo actúa como "hot-standby."
+  - Balancer-Manager: Activa el balancer-manager para gestionar el balanceador. Comprueba su correcto funcionamiento, incluyendo el inicio del tercer nodo "hot-standby."
+  - Módulos a habilitar: sudo a2enmod proxy, sudo a2enmod proxy_http, sudo a2enmod proxy_balancer, sudo a2enmod lbmethod_byrequests, sudo a2enmod slotmem_shm, sudo a2enmod proxy_connect.
